@@ -1,2 +1,4 @@
-Bật nguồn cho màn hình LCD1602 trước sau đó mới bật vi điều khiển
+- Bật nguồn cho màn hình LCD1602 trước sau đó mới bật vi điều khiển
+- Hàm delay_us đang dùng timer2 , nếu cần thì sửa lại timer
+- I2C đang sử dụng I2C i2c1
 
