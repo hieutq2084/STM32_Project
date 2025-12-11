@@ -54,8 +54,7 @@ int DHT11_READ(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin,uint8_t *hum, uint8_t *tem
 
 	// CHECK RESPONSE FROM DHT11
 	uint32_t  t= 0;
-
-
+	
 	while (HAL_GPIO_ReadPin(GPIOx, GPIO_Pin) == GPIO_PIN_SET){
 		if(++t > 1000){
 			return -1;
@@ -158,5 +157,6 @@ void SEND_DATA(uint8_t hum, uint8_t tem){
 //	    HAL_UART_Transmit(&huart1, new_line, 2, 100);
 //	    HAL_UART_Transmit(&huart1, new_line, 2, 100);
 }
+
 
 
