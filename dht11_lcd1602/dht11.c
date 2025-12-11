@@ -122,8 +122,8 @@ void SEND_DATA(uint8_t hum, uint8_t tem){
 	    uint8_t hum_units = hum % 10;
 	    char hum_units_char = hum_units + '0';
 
-	    uint8_t new_line[] = "\n\r";
-	    uint8_t hum_string[] = "HUM: ";
+//	    uint8_t new_line[] = "\n\r";
+	    uint8_t hum_string[] = "DO AM: ";
 
 
 
@@ -132,31 +132,31 @@ void SEND_DATA(uint8_t hum, uint8_t tem){
 	    lcd_send_char(hum_tens_char);
 	    lcd_send_char(hum_units_char);
 	    lcd_send_char(percent);
-	    HAL_UART_Transmit(&huart1, hum_string, sizeof(hum_string) -1, 100);
-	    HAL_UART_Transmit(&huart1, (uint8_t*)&hum_tens_char, 1,100);
-	    HAL_UART_Transmit(&huart1, (uint8_t*)&hum_units_char, 1, 100);
-	    HAL_UART_Transmit(&huart1, &percent,1,100);
-	    HAL_UART_Transmit(&huart1, new_line, 2, 100);
+//	    HAL_UART_Transmit(&huart1, hum_string, sizeof(hum_string) -1, 100);
+//	    HAL_UART_Transmit(&huart1, (uint8_t*)&hum_tens_char, 1,100);
+//	    HAL_UART_Transmit(&huart1, (uint8_t*)&hum_units_char, 1, 100);
+//	    HAL_UART_Transmit(&huart1, &percent,1,100);
+//	    HAL_UART_Transmit(&huart1, new_line, 2, 100);
 
 
 	//--- SEND TEMPERATURE ---
-	    uint8_t celcius[] = " DO C";
+	    uint8_t celcius[] = {0xDF, 'C', '\0'};
 	    uint8_t tem_tens = tem / 10;
 	    char tem_tens_char = tem_tens + '0';
 	    uint8_t tem_units = tem % 10;
 	    char tem_units_char = tem_units + '0';
-	    uint8_t tem_string[] = "TEM: ";
+	    uint8_t tem_string[] = "NHIET DO: ";
 	    lcd_put_cur(0, 0);
 	    lcd_send_string(tem_string);
 	    lcd_send_char(tem_tens_char);
 	    lcd_send_char(tem_units_char);
 	    lcd_send_string(celcius);
-	    HAL_UART_Transmit(&huart1, tem_string, sizeof(tem_string) -1, 100);
-	    HAL_UART_Transmit(&huart1, (uint8_t*)&tem_tens_char, 1,100);
-	    HAL_UART_Transmit(&huart1, (uint8_t*)&tem_units_char, 1, 100);
-	    HAL_UART_Transmit(&huart1, celcius, sizeof(celcius)-1 ,100);
-	    HAL_UART_Transmit(&huart1, new_line, 2, 100);
-	    HAL_UART_Transmit(&huart1, new_line, 2, 100);
+//	    HAL_UART_Transmit(&huart1, tem_string, sizeof(tem_string) -1, 100);
+//	    HAL_UART_Transmit(&huart1, (uint8_t*)&tem_tens_char, 1,100);
+//	    HAL_UART_Transmit(&huart1, (uint8_t*)&tem_units_char, 1, 100);
+//	    HAL_UART_Transmit(&huart1, celcius, sizeof(celcius)-1 ,100);
+//	    HAL_UART_Transmit(&huart1, new_line, 2, 100);
+//	    HAL_UART_Transmit(&huart1, new_line, 2, 100);
 }
 
 
